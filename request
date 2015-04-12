@@ -1,0 +1,2 @@
+#!/bin/bash
+printf "first: %s, second %s, third: %s\n" ${1} ${2} ${3}
