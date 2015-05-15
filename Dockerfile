@@ -1,9 +1,5 @@
-# sshd
-#
-# VERSION               0.0.2
-
 FROM ubuntu:14.04
-MAINTAINER Sven Dowideit <SvenDowideit@docker.com>
+MAINTAINER Andrés Cidel <aa@vincoorbis.com>
 
 RUN apt-get update && apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
@@ -15,6 +11,8 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
+
+## Script to add users
 ADD cn /root/bin/cnu
 RUN chmod +x /root/bin/cnu
 
